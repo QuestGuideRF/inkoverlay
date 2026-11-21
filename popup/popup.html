@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InkOverlay</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header>
+      <h1>✏️ Наложение чернил</h1>
+      <p class="subtitle">Рисуй и создавай скриншоты</p>
+    </header>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="screenshots">📸 Скриншоты</button>
+      <button class="tab-btn" data-tab="settings">⚙️ Настройки</button>
+    </div>
+    <div class="tab-content active" id="screenshots-tab">
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Поиск по сайту или дате...">
+        <button id="clear-search">✕</button>
+      </div>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-value" id="total-screenshots">0</span>
+          <span class="stat-label">Всего</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="today-screenshots">0</span>
+          <span class="stat-label">Сегодня</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="new-screenshot-btn" class="primary-btn">
+          📸 Новый скриншот
+        </button>
+        <button id="clear-history-btn" class="secondary-btn">
+          🗑️ Очистить историю
+        </button>
+      </div>
+      <div id="screenshots-list" class="screenshots-list">
+      </div>
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">📷</div>
+        <p>Нет сохраненных скриншотов</p>
+        <small>Создайте свой первый скриншот!</small>
+      </div>
+    </div>
+    <div class="tab-content" id="settings-tab">
+      <div class="settings-section">
+        <h3>Скриншоты</h3>
+        <div class="setting-item">
+          <label for="default-format">Формат по умолчанию:</label>
+          <select id="default-format">
+            <option value="png">PNG</option>
+            <option value="jpeg">JPEG</option>
+            <option value="pdf">PDF (скоро)</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <label for="jpeg-quality">Качество JPEG:</label>
+          <input type="range" id="jpeg-quality" min="50" max="100" value="95">
+          <span id="quality-value">95%</span>
+        </div>
+        <div class="setting-item">
+          <label>
+            <input type="checkbox" id="auto-include-drawings" checked>
+            Автоматически включать аннотации в скриншоты
+          </label>
+        </div>
+        <div class="setting-item">
+          <label>
+            <input type="checkbox" id="save-as-dialog">
+            Показывать диалог сохранения
+          </label>
+        </div>
+      </div>
+      <div class="settings-section">
+        <h3>Инструменты рисования</h3>
+        <div class="setting-item">
+          <label for="default-color">Цвет по умолчанию:</label>
+          <input type="color" id="default-color" value="#ff0000">
+        </div>
+        <div class="setting-item">
+          <label for="default-width">Толщина линии:</label>
+          <input type="range" id="default-width" min="1" max="20" value="3">
+          <span id="width-value">3px</span>
+        </div>
+        <div class="setting-item">
+          <label for="default-font-size">Размер текста:</label>
+          <input type="range" id="default-font-size" min="10" max="48" value="16">
+          <span id="font-size-value">16px</span>
+        </div>
+        <div class="setting-item">
+          <label>
+            <input type="checkbox" id="auto-save-drawings" checked>
+            Автоматически сохранять аннотации
+          </label>
+        </div>
+      </div>
+      <div class="settings-section">
+        <button id="reset-settings-btn" class="secondary-btn">
+          Сбросить настройки
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
